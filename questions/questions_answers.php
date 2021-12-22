@@ -119,3 +119,24 @@
         Sim, é possível. Para os parâmetros, informa-se o tipo antes do parâmetro. Para
         o retorno, informa-se após dois pontos logo após o fechamento do parênteses dos
         parâmetros
+
+10 - Explique a diferença entre strings simples e strings complexas.
+
+    Strings simples são strings utilizadas dentro de aspas duplas removendo as
+    aspas dos índices dos arrays.
+    Strings complexas utilizam chaves ({}) para envolver a sintaxe normal de array-índice
+    ($arr[$i])
+
+11 - Como incluímos arquivos externos no código PHP?
+
+    include('nome_do_arquivo.php'); ou
+    include 'nome_do_arquivo.php'; ou
+    require 'nome_do_arquivo.php'; ou
+    require_once 'nome_do_arquivo.php';
+
+12 - Quais as diferenças entre include, require e require_once?
+
+    include gera apenas um aviso quando o arquivo não é encontrado;
+    require gerar um erro quando o arquivo não é encontrado;
+    requeire_once evita que ocorra um erro no programa caso o arquivo
+    seja chamado mais de uma vez;

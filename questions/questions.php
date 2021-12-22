@@ -27,3 +27,9 @@
 8 - Como definir funcionalidades(subrotinas) no PHP?
 
 9 - É possível definir os tipos de parâmetros de funções e os tipos de retorno? Como?
+
+10 - Explique a diferença entre strings simples e strings complexas.
+
+11 - Como incluímos arquivos externos no código PHP?
+
+12 - Quais as diferenças entre include, require e require_once?

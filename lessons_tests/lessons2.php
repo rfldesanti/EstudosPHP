@@ -1,5 +1,7 @@
 <?php
 
+include 'titularLetrasMaiusculas.php';
+
 //-------------------------------------LISTA-DE-DADOS--------------------------------------------
 //ARRAYS OU VETORES
 
@@ -228,4 +230,46 @@ $contasCorrentes3[44567889012] = depositar($contasCorrentes3[44567889012], 10000
 exibeMensagem(PHP_EOL . "Deposito de 1000000 para Stevie:");
 foreach ($contasCorrentes3 as $cpf => $contas) {
     echo "CPF: $cpf " . "Titular: " . $contas['titular'] . " Saldo: " . $contas['saldo'] . PHP_EOL;
+    echo "$contas[titular]" . PHP_EOL;
 }
+
+//Strings simples e strings complexas
+
+//Para exibir um valor associativo dentro de uma string, precisamos retirar as aspas
+//simples do índice
+
+//strings simples:
+echo PHP_EOL;
+$test_array = ['nome', 'sobrenome', 'terceiro nome'];
+
+echo "i want to show a number account: $test_array[0]";
+
+foreach ($contasCorrentes3 as $contas) {
+    exibeMensagem("Titular: $contas[titular]; $contas[saldo]");
+}
+
+//strings complexas:
+
+//utilizamos chaves ao redor dos arrays, com a mesma sintaxe:
+
+foreach ($contasCorrentes3 as $contas) {
+    exibeMensagem("Titular: {$contas['titular']}; Saldo: {$contas['saldo']};");
+}
+
+//incluindo arquivos com recursos (arquivos separados)
+
+//include('nome_do_arquivo.php'); ou
+//include 'nome_do_arquivo.php';
+
+//-------------------------------------REFERÊNCIAS-E-MAIS-LISTAS----------------------------------------
+
+//Valor vs. referência
+
+titularLetrasMaiusculas($contasCorrentes3[33456915344]);
+
+foreach ($contasCorrentes3 as $contas) {
+    exibeMensagem("Titular: {$contas['titular']}; Saldo: {$contas['saldo']};");
+}
+
+//mb_string
+//https://www.php.net/manual/pt_BR/book.mbstring.php
