@@ -273,3 +273,77 @@ foreach ($contasCorrentes3 as $contas) {
 
 //mb_string
 //https://www.php.net/manual/pt_BR/book.mbstring.php
+
+//Função List
+
+//Utilizada para atribuir valores específicos de um array para variáveis
+
+$new_array = [12, 33, 39, 45, 90];
+list($var1, $var2, $var3) = $new_array;
+
+exibeMensagem($var1); //12
+exibeMensagem($var2); //33
+exibeMensagem($var3); //39
+
+//para elementos de arrays em posições que não queremos utilizar, basta
+//deixar o respectivo espaço em list() em braco:
+
+list($var4, , , , $var5) = $new_array;
+
+exibeMensagem($var4); //12
+exibeMensagem($var5); //90
+
+//No exemplo das contas, podemos utilizar list para atribuir os
+//dados do array a variáveis e utilizar essas últimas na manipulação
+//dentro das funções
+
+foreach ($contasCorrentes3 as $contas) {
+    list('titular' => $titular, 'saldo' => $saldo) = $contas;
+    exibeMensagem(
+        "Titular: $titular, saldo: $saldo"
+    );
+}
+
+$casas = array(
+    'casa1' => [
+        'area' => 'area1',
+        'local' => 'local1',
+        'tamanho' => 1
+    ],
+    'casa2' => [
+        'area' => 'area2',
+        'local' => 'local2',
+        'tamanho' => 2
+    ],
+    'casa3' => [
+        'area' => 'area3',
+        'local' => 'local3',
+        'tamanho' => 3
+    ]
+);
+
+foreach ($casas as $casa) {
+    list('area' => $area, 'local' => $local, 'tamanho' => $tamanho) = $casa;
+    exibeMensagem("Área: $area | Local: $local | Tamanho: $tamanho");
+}
+
+//uma sintaxe alternativa é:
+//[$var1, $var2] = $array
+
+foreach ($casas as $casa) {
+    ['area' => $area, 'local' => $local, 'tamanho' => $tamanho] = $casa;
+    exibeMensagem("Área: $area | Local: $local | Tamanho: $tamanho");
+}
+
+//remoção de itens
+
+//para remover itens da lista, utilizamos unset($item_do_array):
+
+unset($contasCorrentes3[33456915344]);
+
+foreach ($contasCorrentes3 as $contas) {
+    list('titular' => $titular, 'saldo' => $saldo) = $contas;
+    exibeMensagem(
+        "Titular: $titular, saldo: $saldo"
+    );
+}

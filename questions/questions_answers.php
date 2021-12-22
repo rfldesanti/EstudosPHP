@@ -140,3 +140,39 @@
     require gerar um erro quando o arquivo não é encontrado;
     requeire_once evita que ocorra um erro no programa caso o arquivo
     seja chamado mais de uma vez;
+
+//-------------------------------------REFERÊNCIAS-E-MAIS-LISTAS----------------------------------------
+
+//Valor vs. referência
+
+1 - O que é passar por valor?
+
+    Passar por valor significa que o parãmetro de uma função é apenas uma CÓPIA da variável,
+    ou seja, qualquer alteração realizada no parãmetro não afeta o valor real da variável;
+
+2 - O que é passar por referÊncia?
+
+    Passar por referência significa que a variável enviada ao parâmetro não é uma cópia, mas
+    sim a referência à própria variável, de modo que qualquer alteração realizada no parâmetro
+    irá alterar também a variável.
+
+3 - Como passamos uma variável por referência?
+
+    Para passar uma variável por referência utilizamos o operador "&" no parâmetro da função.
+
+4 - O que é a função list()?
+
+    A função list() é utilizada para criar variáveis em apenas uma operação, geralmente utilizando
+    as posições de um array para atriubir os valores às variáveis.
+
+5 - Como utilizamos a função list()?
+
+    list($var1, $var2) = $array;
+
+    ou
+
+    [$var1, $var2] = $array
+
+6 - O que é a função unset()?
+
+    A função unset() é utilizada para remover um item de um array ou destruir uma variável.

@@ -33,3 +33,19 @@
 11 - Como incluímos arquivos externos no código PHP?
 
 12 - Quais as diferenças entre include, require e require_once?
+
+//-------------------------------------REFERÊNCIAS-E-MAIS-LISTAS----------------------------------------
+
+//Valor vs. referência
+
+1 - O que é passar por valor?
+
+2 - O que é passar por referÊncia?
+
+3 - Como passamos uma variável por referência?
+
+4 - O que é a função list()?
+
+5 - Como utilizamos a função list()?
+
+6 - O que é a função unset()?

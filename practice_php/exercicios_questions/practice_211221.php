@@ -104,4 +104,3 @@
             antes da abertura de chaves, precedido por ":":
 
                 function (array $my_array, String string): array
-
