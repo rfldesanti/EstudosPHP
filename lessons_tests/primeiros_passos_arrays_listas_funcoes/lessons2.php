@@ -155,7 +155,7 @@ function sacar(array $conta, float $valorAScar): array {
     return $conta;
 }
 
-$contasCorrentes3['44567889012'] = sacar($contasCorrentes3['44567889012'], 999999);
+$contasCorrentes3['44567889012'] = sacar($contasCorrentes3['44567889012'], 1000000);
 
 foreach ($contasCorrentes3 as $cpf => $conta) {
     echo "CPF: $cpf " . "Titular: " . $conta['titular'] . " Saldo: " . $conta['saldo'] . PHP_EOL;
@@ -207,7 +207,7 @@ foreach ($contasCorrentes3 as $cpf => $contas) {
 uma vez que ele está modificando o dados da própria expressão
 iterável, ou seja, do array em si*/
 foreach ($contasCorrentes3 as $cpf => $contas) {
-    $contasCorrentes3[$cpf] = sacar($contas, 999999);
+    $contasCorrentes3[$cpf] = sacar($contas, 10000000);
 }
 
 echo PHP_EOL . "Valores nas contas foram alterados(1):" . PHP_EOL;

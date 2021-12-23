@@ -47,3 +47,6 @@ $idadeAoCubo = $idade ** 3;
 $restoOuModulo = 10 % 3;
 
 echo $restoOuModulo;
+
+echo "Testing on php-server<br>";
+echo "Testing on php-server<br>";
