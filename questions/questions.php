@@ -22,7 +22,7 @@
 
 6 - Como adicionar um novo elemento a um array associativo?
 
-7 - Com quais tipos os arrays em PHP são aptos a trabalhar?
+7 - Com quais tipos os índices dos arrays associativos em PHP são aptos a trabalhar?
 
 8 - Como definir funcionalidades(subrotinas) no PHP?
 
