@@ -1,22 +1,25 @@
 <?php
 
 class Conta {
-    private $cpfTitular;
-    private $nomeTitular;
+    //atributos substituídos pela classe Titular;
+    /*private $cpfTitular;
+    private $nomeTitular;*/
+    private $titular;
     private $saldo;
     private static $numeroDeContas = 0;
 
-    public function __construct(string $cpfTitular, string $nomeTitular) {
+    public function __construct(Titular $titular) {
         
-        $this->cpfTitular = $cpfTitular;
+        //$this->cpfTitular = $cpfTitular;
         //a validação não deve ser feita no construtor
         //para isso, é criado um MÉTODO
         /*if (strlen($nomeTitular) < 5) {
             echo "Quantidade de caracteres para nome precisa ser maior";
             exit();
         }*/
-        $this->validaNomeTitular($nomeTitular);
-        $this->nomeTitular = $nomeTitular;
+        //$this->validaNomeTitular($nomeTitular);
+        //$this->nomeTitular = $nomeTitular;
+        $this->titular = $titular;
         $this->saldo = 0;
         //"::" (dois-pontos duas vezes) é utilizado para
         //acessar os atributos estáticos (atributos da classe)
@@ -26,6 +29,14 @@ class Conta {
         //outra é atraves de 'self':
         self::$numeroDeContas++;
 
+    }
+
+    public function __destruct() {
+        //código para exibir quando o garbage collector limpar a memória
+        /*if (self::$numeroDeContas > 2 ) {
+            echo "Existe mais de uma conta ativa" . PHP_EOL;
+        }*/
+        Conta::$numeroDeContas--;
     }
 
     public function sacar(float $valorASacar): void {
@@ -68,7 +79,9 @@ class Conta {
 
     }
 
-    public function recuperaCpfTitular(): string {
+    //com o atributo sendoda classe Titular, já não são mais necessários
+    //os métodos de recuperação de Cpf e Titular
+    /*public function recuperaCpfTitular(): string {
 
         return $this->cpfTitular;
 
@@ -78,7 +91,7 @@ class Conta {
 
         return $this->nomeTitular;
 
-    }
+    }*/
 
     //o método construtor já está definindo CPF e nome na criação do objeto
     //esses métodos abaixo se tornaram obsoletos
@@ -94,11 +107,24 @@ class Conta {
 
     } */
 
-    private function validaNomeTitular(string $nomeTitular) {
+    //método enviado para a classe Titular
+    /*private function validaNomeTitular(string $nomeTitular) {
         if(strlen($nomeTitular) < 5) {
             echo "Quantidade de caracteres para nome precisa ser maior";
             exit();
         }
+    }*/
+
+    public function recuperaCpfTitular(): string {
+        
+        return $this->titular->recuperaCpf();
+
+    }
+
+    public function recuperaNomeTitular(): string {
+
+        return $this->titular->recuperaNome();
+
     }
 
     public static function recuperaNumeroDeContas(): int {
