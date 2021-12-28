@@ -1,35 +1,48 @@
 <?php
 
-class Titular {
+class Titular extends Pessoa
+{
+    //removendo nomve e cpf, pois já estão na classe Pessoa
+    //private $cpf;
+    //private $nome;
+    private $endereco;
 
-    private $cpf;
-    private $nome;
+    public function __construct(CPF $cpf, string $nome, Endereco $endereco) {
 
-    public function __construct(CPF $cpf, string $nome) {
-
-        $this->cpf = $cpf;
-        $this->validaNomeTitular($nome);
-        $this->nome = $nome;
+        parent::__construct($nome, $cpf);
+        //removendo as atribuições em razão da chamada ao construtor pai
+        //$this->validaNomeTitular($nome);
+        //$this->cpf = $cpf;
+        //$this->nome = $nome;
+        $this->endereco = $endereco;
 
     }
 
-    public function recuperaCpf(): string {
+    //removendo os métodos que já estão na classe Pessoa
+    /*public function recuperaCpf(): string {
 
         return $this->cpf->recuperaCPF();
 
-    }
+    }*/
 
-    public function recuperaNome(): string {
+    //removendo os métodos que já estão na classe Pessoa
+    /*public function recuperaNome(): string {
 
         return $this->nome;
 
-    }
+    }*/
 
-    private function validaNomeTitular(string $nomeTitular) {
+    //tranferindo essa função para a classe Pessoa
+    /*private function validaNomeTitular(string $nomeTitular) {
         if(strlen($nomeTitular) < 5) {
             echo "Quantidade de caracteres para nome precisa ser maior";
             exit();
         }
+    }*/
+
+    public function recuperaEndereco(): Endereco
+    {
+        return $this->endereco;
     }
 
 }

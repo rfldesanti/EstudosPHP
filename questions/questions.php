@@ -40,7 +40,7 @@
 
 1 - O que é passar por valor?
 
-2 - O que é passar por referÊncia?
+2 - O que é passar por referência?
 
 3 - Como passamos uma variável por referência?
 
