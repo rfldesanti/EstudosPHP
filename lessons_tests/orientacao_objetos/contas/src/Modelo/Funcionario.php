@@ -1,5 +1,7 @@
 <?php
 
+namespace Alura\Banco\Modelo;
+
 class Funcionario extends Pessoa
 {
     //removendo atributos que estão na classe Pessoa

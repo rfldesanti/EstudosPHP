@@ -1,11 +1,15 @@
 <?php
 
-class Conta {
+namespace Alura\Banco\Modelo\Conta;
+
+use Alura\Banco\Modelo\Conta\Titular;
+
+abstract class Conta {
     //atributos substituídos pela classe Titular;
     /*private $cpfTitular;
     private $nomeTitular;*/
     private $titular;
-    private $saldo;
+    protected $saldo;
     private static $numeroDeContas = 0;
 
     public function __construct(Titular $titular) {
@@ -41,12 +45,15 @@ class Conta {
 
     public function sacar(float $valorASacar): void {
 
-        if ($valorASacar > $this->saldo) {
+        $tarifaDeSaque = $valorASacar * $this->percentualTarifa();
+        $valorSaque = $valorASacar + $tarifaDeSaque;
+
+        if ($valorSaque > $this->saldo) {
             echo "Saldo indisponível";
             return;
         }
         
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorSaque;
         
     }
 
@@ -61,7 +68,9 @@ class Conta {
         
     }
 
-    public function transferir(float $valorATransferir, Conta $contaDestino): void {
+    //método removido para a classe ContCorrente, uma vez que a classe Conta
+    //tornou-se uma classe genérica
+    /*public function transferir(float $valorATransferir, Conta $contaDestino): void {
 
         if ($valorATransferir > $this->saldo) {
             echo "Saldo indisponível para transferência";
@@ -71,7 +80,7 @@ class Conta {
         $this->sacar($valorATransferir);
         $contaDestino->depositar($valorATransferir);
         
-    }
+    }*/
 
     public function recuperaSaldo(): float {
         
@@ -132,4 +141,12 @@ class Conta {
         return self::$numeroDeContas;
 
     }
+
+    //método transformado em método abstrato
+    /*protected function percentualTarifa(): float
+    {
+        return 0.05;
+    }*/
+
+    abstract protected function percentualTarifa(): float;
 }
