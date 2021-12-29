@@ -8,8 +8,10 @@ class Funcionario extends Pessoa
     //private $nome;
     //private $cpf;
     private $cargo;
+    private $salario;
 
-    public function __construct(string $nome, CPF $cpf, string $cargo)
+
+    public function __construct(string $nome, CPF $cpf, string $cargo, float $salario)
     {
         parent::__construct($nome, $cpf);
         //removendo as atribuições em razão da chamada ao construtor pai
@@ -17,6 +19,7 @@ class Funcionario extends Pessoa
         //$this->nome = $nome;
         //$this->cpf = $cpf;
         $this->cargo = $cargo;
+        $this->salario = $salario;
     }
 
     //removendo os métodos que já estão na classe Pessoa
@@ -40,5 +43,15 @@ class Funcionario extends Pessoa
     {
         $this->validaNomeTitular($nome);
         $this->nome = $nome;
+    }
+
+    public function recuperaSalario(): float
+    {
+        return $this->salario;
+    }
+
+    public function calculaBonificacao(): float
+    {
+        return $this->salario * 0.1;
     }
 }
