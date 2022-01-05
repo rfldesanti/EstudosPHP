@@ -1,5 +1,7 @@
 <?php
 
+//php tem uma função nativa chamada array_search(); se possível, buscar o código-fonte dessa função.
+
 function binarySearch(array $array, int $valor): ?int
 {   
     $valorMinimo = 0;

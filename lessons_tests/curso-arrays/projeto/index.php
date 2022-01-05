@@ -1,15 +1,27 @@
 <?php
 
-$nomes = "Giovanni, Giorgio, Mary, Lamb";
+namespace Alura;
 
-$nomes = explode(", ", $nomes);
+require 'autoload.php';
 
-var_dump($nomes);
+$correntistas = [
+    "Giovanni",
+    "João",
+    17,
+    "Maria",
+    25,
+    "Luis",
+    "Luisa",
+    "12"
+];
 
-foreach ($nomes as $nome) {
-    echo $nome . PHP_EOL;
-}
+echo "Pre unset:" . PHP_EOL;
+var_dump($correntistas);
 
-$nomesJuntos = implode("-", $nomes);
+ArrayUtils::remover("Luis", $correntistas);
 
-var_dump($nomesJuntos);
+echo "Pos unset" . PHP_EOL;
+var_dump($correntistas);
+
+$calculadora = new Calculadora();
+$calculadora2 = new Calculadora();
