@@ -5,23 +5,21 @@ namespace Alura;
 require 'autoload.php';
 
 $correntistas = [
-    "Giovanni",
-    "João",
-    17,
+    "Jose",
     "Maria",
-    25,
-    "Luis",
-    "Luisa",
-    "12"
+    "Pedro",
 ];
 
-echo "Pre unset:" . PHP_EOL;
-var_dump($correntistas);
+$saldos = [
+    35000,
+    420,
+    850,
+];
 
-ArrayUtils::remover("Luis", $correntistas);
+$relacionados = array_combine($correntistas, $saldos);
 
-echo "Pos unset" . PHP_EOL;
-var_dump($correntistas);
+var_dump($relacionados);
 
-$calculadora = new Calculadora();
-$calculadora2 = new Calculadora();
+$correntistasAcimaValor = ArrayUtils::encontrarPessoasComSaldoMaior(3000, $relacionados);
+
+var_dump($correntistasAcimaValor);

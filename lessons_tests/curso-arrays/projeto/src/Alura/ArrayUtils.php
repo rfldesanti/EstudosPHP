@@ -10,4 +10,15 @@ class ArrayUtils
         var_dump($posicao);
         unset($array[$posicao]);
     }
+
+    public static function encontrarPessoasComSaldoMaior(int $saldo, array $array): array
+    {
+        $correntistasComSaldoMaior = [];
+        foreach ($array as $chave => $valor) {
+            if ($valor > $saldo) {
+                $correntistasComSaldoMaior[] = $chave;
+            }
+        }
+        return $correntistasComSaldoMaior;
+    }
 }
