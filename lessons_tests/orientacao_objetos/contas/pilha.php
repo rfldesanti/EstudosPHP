@@ -2,6 +2,8 @@
 
 function funcao1()
 {
+    var_dump(debug_backtrace());
+    print_r(debug_backtrace());
     echo 'Entrei na função 1' . PHP_EOL;
     funcao2();
     echo 'Saindo da função 1' . PHP_EOL;
