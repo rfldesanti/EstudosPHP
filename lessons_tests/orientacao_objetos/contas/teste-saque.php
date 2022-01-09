@@ -4,7 +4,7 @@ require_once 'autoload.php';
 
 use Alura\Banco\Modelo\Conta\{Titular,
      ContaPoupanca, 
-     ContaCorrente};
+     ContaCorrente, SaldoInsuficienteException};
 use Alura\Banco\Modelo\Conta\Conta;
 use Alura\Banco\Modelo\{CPF, Endereco};
 
@@ -36,12 +36,18 @@ echo $conta2->recuperaCpfTitular() . PHP_EOL;
 echo $conta2->recuperaNomeTitular() . PHP_EOL;
 
 $conta2->depositar(500);
-$conta2->sacar(100);
 
-$conta->depositar(500);
-$conta->sacar(100);
+try {
+    $conta2->sacar(600);
+} catch (SaldoInsuficienteException $exception) {
+    echo "Você não tem saldo suficiente para realizar esse saque" . PHP_EOL;
+    //echo $exception->getMessage();
+}
 
-$conta->transferir(50, $conta2);
+//$conta->depositar(500);
+//$conta->sacar(100);
 
-echo $conta->recuperaSaldo() . PHP_EOL;
+//$conta->transferir(50, $conta2);
+
+//echo $conta->recuperaSaldo() . PHP_EOL;
 echo $conta2->recuperaSaldo() . PHP_EOL;
