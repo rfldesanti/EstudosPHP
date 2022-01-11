@@ -3,6 +3,8 @@
 namespace Alura\Banco\Modelo\Conta;
 
 use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\Endereco;
+use InvalidArgumentException;
 
 abstract class Conta {
     //atributos substituídos pela classe Titular;
@@ -59,7 +61,7 @@ abstract class Conta {
     public function depositar(float $valorADepositar): void {
 
         if ($valorADepositar <= 0) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException("Valor a depositar precisa ser positivo");
         }
         
         $this->saldo += $valorADepositar;
@@ -138,6 +140,11 @@ abstract class Conta {
         
         return self::$numeroDeContas;
 
+    }
+
+    public function recuperaEnderecoTitular(): Endereco
+    {
+        return $this->titular->recuperaEndereco();
     }
 
     //método transformado em método abstrato

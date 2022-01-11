@@ -28,8 +28,9 @@ abstract class Pessoa
 
     final protected function validaNome(string $nomeTitular) {
         if(strlen($nomeTitular) < 5) {
-            echo "Quantidade de caracteres para nome precisa ser maior";
-            exit();
+            //echo "Quantidade de caracteres para nome precisa ser maior";
+            throw new caracteresInsuficientesException($nomeTitular);
+            //exit();
         }
     }
 }

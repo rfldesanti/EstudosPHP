@@ -2,6 +2,8 @@
 
 namespace Alura\Banco\Modelo;
 
+use InvalidArgumentException;
+
 final class CPF {
 
     private $cpf;
@@ -15,7 +17,7 @@ final class CPF {
         ]);
 
         if ($cpf == false) {
-            echo "CPF INVALIDO";
+            throw new InvalidArgumentException("Número de CPF inválido");
             exit();
         }
         $this->cpf = $cpf;
