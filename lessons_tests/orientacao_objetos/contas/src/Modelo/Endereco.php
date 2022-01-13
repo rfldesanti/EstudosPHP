@@ -43,7 +43,7 @@ final class Endereco
 
     public function __toString(): string
     {
-        return "{$this->rua}, {$this->bairro}, {$this->numero}, {$this->cidade}";
+        return "{$this->cidade}, {$this->bairro}, {$this->rua}, {$this->numero}";
     }
 
     public function __set(string $nomeDoAtributo, string $value)

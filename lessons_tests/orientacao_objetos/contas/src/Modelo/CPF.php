@@ -23,10 +23,9 @@ final class CPF {
         $this->cpf = $cpf;
     }
 
-    public function recuperaCPF(): string {
-
-        return $this->cpf;
-        
+    public function recuperaCPF(): string 
+    {
+        return $this->cpf;        
     }
 
 }

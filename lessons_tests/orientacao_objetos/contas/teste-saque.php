@@ -19,12 +19,17 @@ $conta = new ContaCorrente(
     ),
 );
 
-echo $conta->recuperaEnderecoTitular()->recuperaBairro() . PHP_EOL;
+echo $conta->recuperaEnderecoTitular() . PHP_EOL;
+
+echo PHP_EOL;
+$varEnd = $conta->recuperaEnderecoTitular();
+var_dump($varEnd) . PHP_EOL;
+echo PHP_EOL;
 
 $conta2 = new ContaPoupanca(
     new Titular(
         new CPF("284.955.710-26"),
-          "h",
+          "ANARQUIA",
         new Endereco(
             "Praia",
             "Lagoa",
